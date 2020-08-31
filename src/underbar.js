@@ -100,14 +100,20 @@
     // define an array to contain elements that pass a truth test
     let results = [];
 
-    // iterate over each element of the input collection
-    for (let i = 0; i < collection.length; i++) {
-      let item = collection[i];
-      // check if each item in the predicate test is true
-      if (test(item) === true) {
+    // // iterate over each element of the input collection
+    // for (let i = 0; i < collection.length; i++) {
+    //   let item = collection[i];
+    //   // check if each item in the predicate test is true
+    //   if (test(item) === true) {
+    //     results.push(item);
+    //   }
+    // }
+
+    _.each(collection, function(item) {
+      if (test(item)) {
         results.push(item);
       }
-    }
+    });
 
     // return all elements that pass a truth test
     return results;
