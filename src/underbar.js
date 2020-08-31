@@ -42,8 +42,19 @@
 
     if (n === 0) {
       return [];
+    // } else {
+    //   return n === undefined ? array[lastIndex] : array.slice(-n);
+    }
+
+    if (n === undefined) {
+      // return the last element
+      return array[lastIndex];
+    } else if (n > array.length) {
+      // return all array elements
+      return array;
     } else {
-      return n === undefined ? array[lastIndex] : array.slice(-n);
+      // return last n elements of the array
+      return array.slice(-n);
     }
   };
 
