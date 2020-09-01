@@ -176,23 +176,27 @@
     // define a results array
     let results = [];
 
-    // check whether the collection is an array or object
-    if (Array.isArray(collection)) {
-      // iterate over each element in the collection
-      for (let i = 0; i < collection.length; i++) {
-        let item = collection[i];
-        // apply iterator over the current item
-        let iterated = iterator(item);
-        // add the iterated item to the results array
-        results.push(iterated);
-      }
-    } else {
-      for (let key in collection) {
-        let item = collection[key];
-        let iterated = iterator(item);
-        results.push(iterated);
-      }
-    }
+    _.each(collection, function(item) {
+      results.push(iterator(item));
+    });
+
+    // // check whether the collection is an array or object
+    // if (Array.isArray(collection)) {
+    //   // iterate over each element in the collection
+    //   for (let i = 0; i < collection.length; i++) {
+    //     let item = collection[i];
+    //     // apply iterator over the current item
+    //     let iterated = iterator(item);
+    //     // add the iterated item to the results array
+    //     results.push(iterated);
+    //   }
+    // } else {
+    //   for (let key in collection) {
+    //     let item = collection[key];
+    //     let iterated = iterator(item);
+    //     results.push(iterated);
+    //   }
+    // }
 
     // return the array of iterated items
     return results;
