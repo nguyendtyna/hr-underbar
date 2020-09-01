@@ -172,6 +172,30 @@
     // map() is a useful primitive iteration function that works a lot
     // like each(), but in addition to running the operation on all
     // the members, it also maintains an array of results.
+
+    // define a results array
+    let results = [];
+
+    // check whether the collection is an array or object
+    if (Array.isArray(collection)) {
+      // iterate over each element in the collection
+      for (let i = 0; i < collection.length; i++) {
+        let item = collection[i];
+        // apply iterator over the current item
+        let iterated = iterator(item);
+        // add the iterated item to the results array
+        results.push(iterated);
+      }
+    } else {
+      for (let key in collection) {
+        let item = collection[key];
+        let iterated = iterator(item);
+        results.push(iterated);
+      }
+    }
+
+    // return the array of iterated items
+    return results;
   };
 
   /*
