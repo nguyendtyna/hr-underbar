@@ -259,6 +259,8 @@
     return accumulator;
   };
 
+  // PART I ASSIGNMENT COMPLETE
+
   // Determine if the array or object contains a given value (using `===`).
   _.contains = function(collection, target) {
     // TIP: Many iteration problems can be most easily expressed in
