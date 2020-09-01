@@ -143,25 +143,23 @@
   _.uniq = function(array, isSorted, iterator) {
     let uniqueResults = [];
 
-    if (isSorted === true) {
+    if (isSorted) {
       // iterate over input array
-      for (let i = 0; i < array.length; i++) {
-        let item = array[i];
+      _.each(array, function(item) {
         let lastItem = uniqueResults.length - 1;
         let isUnique = iterator(uniqueResults[lastItem]) !== iterator(item);
         // check if the current item is found in the array and is unique
         if (_.indexOf(uniqueResults, item) === -1 && (isUnique)) {
           uniqueResults.push(item);
         }
-      }
+      });
     } else {
       // perform without isSorted
-      for (let i = 0; i < array.length; i++) {
-        let item = array[i];
+      _.each(array, function(item) {
         if (_.indexOf(uniqueResults, item) === -1) {
           uniqueResults.push(item);
         }
-      }
+      });
     }
 
     // return array that does not contain duplicate elements
