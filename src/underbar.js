@@ -345,6 +345,20 @@
   // Like extend, but doesn't ever overwrite a key that already
   // exists in obj
   _.defaults = function(obj) {
+    // console.log(arguments);
+
+    // iterate through arguments
+    _.each(arguments, function(item) {
+      _.each(item, function(value, key) {
+        // create key-value if it has not already been defined
+        if (obj[key] === undefined) {
+          obj[key] = value;
+        }
+      });
+    });
+
+    // return result object
+    return obj;
   };
 
 
