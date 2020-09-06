@@ -278,10 +278,7 @@
   _.every = function(collection, iterator) {
     // TIP: Try re-using reduce() here.
 
-    // check if callback is provided
-    if (iterator === undefined) {
-      iterator = _.identity;
-    }
+    iterator = iterator || _.identity;
 
     // check if every element in the collection passes a truth test
     return _.reduce(collection, function(allTrue, item) {
@@ -298,10 +295,7 @@
   _.some = function(collection, iterator) {
     // TIP: There's a very clever way to re-use every() here.
 
-    // check if callback is provided
-    if (iterator === undefined) {
-      iterator = _.identity;
-    }
+    iterator = iterator || _.identity;
 
     // check if any item in the collection passes a truth test
     return !_.every(collection, function(item) {
