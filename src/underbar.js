@@ -395,7 +395,26 @@
   // _.memoize should return a function that, when called, will check if it has
   // already computed the result for the given argument and return that value
   // instead if possible.
+
   _.memoize = function(func) {
+    // console.log(arguments);
+    let cache = {};
+
+    return function() {
+      // console.log(arguments);
+
+      let stringArg = JSON.stringify(arguments);
+      // console.log(stringArg);
+
+      // check if argument has been computed/exists in cache
+      if (cache[stringArg] === undefined) {
+        // pass information from from one function call to another
+        cache[stringArg] = func.apply(this, arguments);
+      }
+
+      // return cache of memoized values of the returned func
+      return cache[stringArg];
+    };
   };
 
   // Delays a function for the given number of milliseconds, and then calls
