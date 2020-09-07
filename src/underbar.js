@@ -446,6 +446,25 @@
   // input array. For a tip on how to make a copy of an array, see:
   // http://mdn.io/Array.prototype.slice
   _.shuffle = function(array) {
+    // define a result array
+    let shuffled = [];
+    // create a copy of the input array
+    let copy = array.slice();
+
+    // iterate through the input array
+    _.each(array, function(item) {
+      // randomize an index from the input array
+      let random = Math.floor(Math.random() * copy.length);
+      // add the value at the generated index from the input array to the result array
+      shuffled.push(copy[random]);
+      // removed the used randomized index
+      copy.splice(copy[random], 1);
+      // console.log('copy array:', copy);
+    });
+
+    // console.log('shuffled array:', shuffled);
+    // return the shuffled array
+    return shuffled;
   };
 
 
